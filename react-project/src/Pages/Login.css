@@ -1,0 +1,128 @@
+.login_main_div {
+    overflow-x: hidden;
+}
+
+
+@media screen and (min-width: 425px) {
+    #login_section_one {
+        height: 100vh;
+        background-color: rgb(215, 215, 252);
+        background: linear-gradient(to bottom, #9358c2, #6e59b0);
+    }
+
+    #login_section_two {
+        height: 100vh;
+    }
+
+    .heading {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        margin-top: 7em;
+    }
+
+    #logo {
+        text-align: center;
+        margin-top: 2.5em;
+    }
+
+    #name {
+        color: white;
+        margin-top: 0.55em;
+    }
+
+    #motto {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: 3.5em;
+        width: 50%;
+        margin: 3.5em auto 0 auto;
+        color: white
+    }
+
+    .form_main_div {
+        margin: 6em;
+    }
+
+    #form_heading {
+        margin: 1.5em;
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    .form_data {
+        margin: 1.5em;
+    }
+
+    .label_field {
+        color: #6e59b0;
+        font-size: large;
+    }
+
+    #email_div {
+        padding: 1em;
+    }
+
+    #email_field {
+        border-top: none;
+        border-bottom: 1px solid gray;
+        border-right: none;
+        border-left: none;
+        outline: none;
+        width: 100%;
+    }
+
+    #email_field:focus {
+        border-bottom: 1px solid blue;
+    }
+
+    #password_div {
+        margin-top: 1em;
+        padding: 1em;
+    }
+
+    #password_field {
+        border-top: none;
+        border-bottom: 1px solid gray;
+        border-right: none;
+        border-left: none;
+        outline: none;
+        width: 100%;
+        margin-bottom: 0.95em;
+    }
+
+    #password_field:focus {
+        border-bottom: 1px solid blue;
+    }
+
+    #showPass {
+        padding: 0.50em;
+        float: right;
+        margin-right: 10px;
+        margin-top: -57px;
+        position: relative;
+        z-index: 2;
+        background-color: white;
+        outline: none;
+        /* border: 1px solid red; */
+        border: none;
+    }
+
+    #login_btn_div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1em;
+
+    }
+
+    #login_btn {
+        padding: 0.80em 1.5em 0.80em 1.5em;
+        text-align: center;
+        background-color: #b07fd8;
+        border-radius: 10px;
+        color: white;
+        border: 1px solid white;
+    }
+}
