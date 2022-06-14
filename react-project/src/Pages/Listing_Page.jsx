@@ -19,6 +19,7 @@ const ListingPage = () => {
         nav('/login');
     }
 
+
     useEffect(() => {
         const getList = async () => {
             try {

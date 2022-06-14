@@ -1,10 +1,18 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import './Form_Page.css';
 
 const FormPage = () => {
-    let nav = useNavigate();
+    const nav = useNavigate();
+
+    useEffect(() => {
+        const getToken = localStorage.getItem('uniqueID');
+        if (!getToken) {
+            nav('/login');
+        }
+    })
+
 
     const [loginerr, setloginerr] = useState(false);
     const [success, setsuccess] = useState(false);
@@ -20,17 +28,18 @@ const FormPage = () => {
         cust_type: "",
         territory: ""
     });
+
+
     const show = async (e) => {
         e.preventDefault();
-        console.log(values.fullname);
+        // console.log(values.fullname);
         const config = {
             header:
             {
                 "Content-Type": "application/json"
             }
         }
-        // console.log(values.email, values.companyName, values.gender, values.cust_type, values.territory);
-        // { email: values.email, address: values.address, contact: values.contact, bank: values.bank, cust_type: values.cust_type, gender: values.gender, territory: values.territory }, config
+
 
         try {
             await axios.post(`http://localhost:3001/data/${values.fullname}`, { email: values.email, address: values.address, contact: values.contact, bank: values.bank, cust_type: values.cust_type, gender: values.gender, territory: values.territory }, config)
@@ -64,6 +73,11 @@ const FormPage = () => {
 
     };
 
+    const backHome = (e) => {
+        e.preventDefault();
+        nav('/');
+    }
+
     return (
         <>
 
@@ -71,6 +85,7 @@ const FormPage = () => {
 
                 <div id="form_page_section1">
                     <h2>Form Page :</h2>
+                    <button id="home" onClick={backHome}>Home Page</button>
                 </div>
 
 
@@ -115,6 +130,7 @@ const FormPage = () => {
                                         name="email"
                                         value={values.email}
                                         onChange={changeHandler}
+                                        required
                                     />
                                 </div>
 
@@ -123,8 +139,8 @@ const FormPage = () => {
                                 <div class="inp_fields_div">
                                     <label htmlFor="gender" className="lxl-fields">Gender</label>
                                     <select name="gender" value={values.gender} className="select-fields" onChange={changeHandler}>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
                                     </select>
                                 </div>
 
@@ -198,7 +214,7 @@ const FormPage = () => {
                                         {success ? <button id="btn-visit" onClick={listing_page}>Visit Client List</button> : " "}
                                     </div>
                                     <div id="btn-div">
-                                        <button onClick={show} id="btn">Submit</button>
+                                        <button onClick={show} id="btn">Save</button>
                                     </div>
                                 </div>
 
